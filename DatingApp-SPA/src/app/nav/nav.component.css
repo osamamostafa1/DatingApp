@@ -1,3 +1,7 @@
 .text-light{
     color: #fff;
+    cursor: pointer;
+}
+.dropdown-item{
+    cursor: pointer;
 }
