@@ -1,3 +1,4 @@
+import { ErrorIterceptorProvider } from './services/error.iterceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +20,9 @@ import { RegisterComponent } from './register/register.component';
       HttpClientModule,
       FormsModule
    ],
-   providers: [],
+   providers: [
+      ErrorIterceptorProvider
+   ],
    bootstrap: [
       AppComponent
    ]
