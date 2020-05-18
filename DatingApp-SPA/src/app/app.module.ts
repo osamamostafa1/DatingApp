@@ -1,6 +1,6 @@
 import { MemberDetailResolver } from './_resolvers/member-detail.resolvers';
 import { ErrorIterceptorProvider } from './services/error.iterceptor';
-import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -21,17 +21,13 @@ import { MessagesComponent } from './messages/messages.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberListResolver } from './_resolvers/member-list.resolvers';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolvers';
 
 export function tokenGetter(){
    return localStorage.getItem('token');
 }
 
-export class CustomHammerConfig extends HammerGestureConfig {
-   overrides = {
-      pinch: {enable: false},
-      rotate: {enable: false}
-   };
-}
 
 @NgModule({
    declarations: [
@@ -43,7 +39,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -66,7 +63,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ErrorIterceptorProvider,
       MemberDetailResolver,
       MemberListResolver,
-      {provide: HAMMER_GESTURE_CONFIG , useClass: CustomHammerConfig}
+      MemberEditResolver
    ],
    bootstrap: [
       AppComponent
